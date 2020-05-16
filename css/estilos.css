@@ -99,18 +99,46 @@ a:hover {
   font-size: 2em;
 }
 
+.sobre,
 .contato,
 .portfolio {
   padding: 2em;
   min-heigth: 100vh;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+  }
+}
+
+.sobre h2,
 .contato h2,
 .portfolio h2 {
   color: white;
-  font-family: 'Carter One', cursive;
-  font-size: 2.2em;
+  font-family: 'Press Start 2P', cursive;
   margin-bottom: .5em;
+  font-size: 2em;
+}
+
+.sobre p {
+  color: white;
+  text-indent: 1.4em;
+  margin-bottom: 1.4em;
+  text-align: justify;
+}
+
+.sobre a {
+  color: white;
+  text-decoration: underline;
+}
+
+.sobre a:hover {
+  background-color: cyan;
+  text-decoration: none;
+  color: #4499;
 }
 
 .portfolio .grid {
@@ -133,13 +161,48 @@ a:hover {
   }
 }
 
+.flip-card {
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 3s;
+}
+
+.card-front, 
+.card-back {
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
 .portfolio figure {
   text-align: center;
 }
 
 .img-portfolio {
   height: 180px;
-  width: 240px;
+  width: 100%;
   border-radius: 10px;
   object-fit: cover;
   object-position: left bottom;
@@ -162,8 +225,7 @@ a:hover {
   transition: transform 500ms;
 }
 
-.img-perfil:hover,
-.img-portfolio:hover {
+.img-perfil:hover {
   transform: scale(1.2) rotate(-2deg);
 }
 
